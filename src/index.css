@@ -1,0 +1,220 @@
+:root {
+  /* Modern Financial App Color Palette */
+  --color-primary: #3a86ff;
+  --color-primary-dark: #0a4fc9;
+  --color-primary-light: #7cb0ff;
+  --color-secondary: #8338ec;
+  --color-secondary-light: #a979f0;
+  
+  --color-success: #06d6a0;
+  --color-success-dark: #05a37a;
+  --color-success-light: #57e4c5;
+  
+  --color-danger: #ef476f;
+  --color-danger-dark: #d62d56;
+  --color-danger-light: #f27b97;
+  
+  --color-warning: #ffd166;
+  --color-warning-dark: #ffc233;
+  --color-warning-light: #ffe099;
+  
+  --color-info: #118ab2;
+  --color-info-dark: #0d6888;
+  --color-info-light: #38b2d6;
+  
+  --color-dark: #073b4c;
+  --color-light: #f8f9fa;
+  --color-gray: #6c757d;
+  --color-gray-light: #dee2e6;
+
+  /* Gradient Backgrounds */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  --gradient-success: linear-gradient(135deg, var(--color-success), var(--color-success-dark));
+  --gradient-danger: linear-gradient(135deg, var(--color-danger), var(--color-danger-dark));
+  --gradient-warning: linear-gradient(135deg, var(--color-warning), var(--color-warning-dark));
+  --gradient-purple: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+  --gradient-header: linear-gradient(135deg, #3a86ff, #8338ec);
+
+  /* Category Colors */
+  --category-housing: var(--color-primary-dark);
+  --category-transportation: var(--color-danger);
+  --category-food: var(--color-success);
+  --category-utilities: var(--color-info);
+  --category-insurance: var(--color-secondary);
+  --category-healthcare: var(--color-danger-light);
+  --category-entertainment: var(--color-warning);
+  --category-personal-care: var(--color-secondary-light);
+  --category-education: var(--color-primary-light);
+  --category-savings: var(--color-success-light);
+  --category-debt-payments: var(--color-danger-dark);
+  --category-income: var(--color-success);
+  --category-other: var(--color-gray);
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Custom button styles */
+.btn-success {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.btn-success:hover {
+  background-color: var(--color-success-dark);
+  border-color: var(--color-success-dark);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+}
+
+.btn-warning {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.btn-warning:hover {
+  background-color: var(--color-warning-dark);
+  border-color: var(--color-warning-dark);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Card styling */
+.card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-weight: 600;
+}
+
+/* Transaction type indicators */
+.income-indicator {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.expense-indicator {
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+/* Form controls with improved styling */
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 1px solid var(--color-gray-light);
+  padding: 0.6rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 0.25rem rgba(58, 134, 255, 0.25);
+}
+
+/* Table styling */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Alert styling */
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Badge colors for budget categories */
+.badge-housing {
+  background-color: var(--category-housing) !important;
+}
+
+.badge-transportation {
+  background-color: var(--category-transportation) !important;
+}
+
+.badge-food {
+  background-color: var(--category-food) !important;
+}
+
+.badge-utilities {
+  background-color: var(--category-utilities) !important;
+}
+
+.badge-insurance {
+  background-color: var(--category-insurance) !important;
+}
+
+.badge-healthcare {
+  background-color: var(--category-healthcare) !important;
+}
+
+.badge-entertainment {
+  background-color: var(--category-entertainment) !important;
+}
+
+.badge-personal-care {
+  background-color: var(--category-personal-care) !important;
+}
+
+.badge-education {
+  background-color: var(--category-education) !important;
+}
+
+.badge-savings {
+  background-color: var(--category-savings) !important;
+}
+
+.badge-debt-payments {
+  background-color: var(--category-debt-payments) !important;
+}
+
+.badge-income {
+  background-color: var(--category-income) !important;
+}
+
+.badge-other {
+  background-color: var(--category-other) !important;
+}
+
+/* Custom styling for summary cards */
+.summary-card {
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.summary-card.income {
+  background: var(--gradient-success);
+  color: white;
+}
+
+.summary-card.expense {
+  background: var(--gradient-danger);
+  color: white;
+}
+
+.summary-card.balance {
+  background: var(--gradient-primary);
+  color: white;
+}
