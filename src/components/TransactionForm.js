@@ -101,7 +101,7 @@ const TransactionForm = () => {
 
           <Col md={6}>
             <Form.Group className="mb-3">
-              <Form.Label>Transaction Type</Form.Label>
+              <Form.Label>Type</Form.Label>
               <Form.Select
                 name="type"
                 value={formData.type}
