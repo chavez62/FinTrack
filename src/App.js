@@ -1,24 +1,28 @@
-import { useState } from 'react';
-import './App.css';
-import BudgetProvider from './context/BudgetContext';
-import Header from './components/Header';
-import TransactionForm from './components/TransactionForm';
-import TransactionList from './components/TransactionList';
-import BudgetSummary from './components/BudgetSummary';
-import { Container, Row, Col, Nav, Tab } from 'react-bootstrap';
+import { useState } from "react";
+import "./App.css";
+import BudgetProvider from "./context/BudgetContext";
+import Header from "./components/Header";
+import TransactionForm from "./components/TransactionForm";
+import TransactionList from "./components/TransactionList";
+import BudgetSummary from "./components/BudgetSummary";
+import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 
 function App() {
-  const [activeTab, setActiveTab] = useState('list'); // 'list', 'add', 'summary'
+  const [activeTab, setActiveTab] = useState("list"); // 'list', 'add', 'summary'
 
   return (
     <BudgetProvider>
-      <div className="min-vh-100" style={{ background: '#f7f9fc' }}>
+      <div className="min-vh-100" style={{ background: "#f7f9fc" }}>
         <Header />
-        
+
         <Container className="py-4">
           {/* Mobile Navigation Tabs */}
           <div className="d-md-none mb-4">
-            <Tab.Container id="mobile-tabs" activeKey={activeTab} onSelect={setActiveTab}>
+            <Tab.Container
+              id="mobile-tabs"
+              activeKey={activeTab}
+              onSelect={setActiveTab}
+            >
               <Nav variant="pills" className="bg-white rounded shadow" fill>
                 <Nav.Item>
                   <Nav.Link eventKey="list">Transactions</Nav.Link>
@@ -30,7 +34,7 @@ function App() {
                   <Nav.Link eventKey="summary">Summary</Nav.Link>
                 </Nav.Item>
               </Nav>
-              
+
               <Tab.Content className="mt-3">
                 <Tab.Pane eventKey="list">
                   <TransactionList />
@@ -44,7 +48,7 @@ function App() {
               </Tab.Content>
             </Tab.Container>
           </div>
-          
+
           {/* Desktop View - Grid Layout */}
           <div className="d-none d-md-block">
             <Row>
@@ -66,3 +70,4 @@ function App() {
 }
 
 export default App;
+

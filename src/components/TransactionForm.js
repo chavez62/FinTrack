@@ -11,7 +11,7 @@ const TransactionForm = () => {
     category: "Housing",
     amount: "",
     type: "expense",
-    date: new Date().toISOString().split("T")[0]
+    date: new Date().toISOString().split("T")[0],
   });
   const [error, setError] = useState("");
 
@@ -52,7 +52,7 @@ const TransactionForm = () => {
       category: formData.category,
       amount: parseFloat(formData.amount),
       type: formData.type,
-      date: formData.date
+      date: formData.date,
     });
 
     // Reset form
@@ -61,23 +61,30 @@ const TransactionForm = () => {
       category: formData.type === "income" ? "Income" : "Housing",
       amount: "",
       type: "expense",
-      date: new Date().toISOString().split("T")[0]
+      date: new Date().toISOString().split("T")[0],
     });
   };
 
   return (
     <motion.div
       className="p-4 bg-white shadow card"
-      style={{ 
-        borderTop: `4px solid ${formData.type === "income" ? "var(--color-success)" : "var(--color-primary)"}`
+      style={{
+        borderTop: `4px solid ${formData.type === "income" ? "var(--color-success)" : "var(--color-primary)"}`,
       }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
       <h5 className="mb-4 d-flex align-items-center">
-        <span className={`rounded-circle me-2 p-2 ${formData.type === "income" ? "bg-success" : "bg-primary"} bg-opacity-10`}>
-          <FaWallet size={16} className={formData.type === "income" ? "text-success" : "text-primary"} />
+        <span
+          className={`rounded-circle me-2 p-2 ${formData.type === "income" ? "bg-success" : "bg-primary"} bg-opacity-10`}
+        >
+          <FaWallet
+            size={16}
+            className={
+              formData.type === "income" ? "text-success" : "text-primary"
+            }
+          />
         </span>
         Add New Transaction
       </h5>
@@ -101,7 +108,7 @@ const TransactionForm = () => {
 
           <Col md={6}>
             <Form.Group className="mb-3">
-              <Form.Label>Transaction Type</Form.Label>
+              <Form.Label>Type</Form.Label>
               <Form.Select
                 name="type"
                 value={formData.type}
@@ -158,14 +165,17 @@ const TransactionForm = () => {
           </Col>
         </Row>
 
-        <Button 
-          variant={formData.type === "income" ? "success" : "primary"} 
-          type="submit" 
+        <Button
+          variant={formData.type === "income" ? "success" : "primary"}
+          type="submit"
           className="w-100 mt-3 py-2"
-          style={{ 
-            background: formData.type === "income" ? 'var(--gradient-success)' : 'var(--gradient-primary)',
-            border: 'none',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+          style={{
+            background:
+              formData.type === "income"
+                ? "var(--gradient-success)"
+                : "var(--gradient-primary)",
+            border: "none",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
           <FaWallet className="me-2" />
@@ -177,3 +187,4 @@ const TransactionForm = () => {
 };
 
 export default TransactionForm;
+
