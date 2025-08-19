@@ -1,6 +1,6 @@
 # FinTrack - Personal Budget Tracker
 
-![FinTrack Logo](public/logo192.png)
+<img width="1393" height="894" alt="image" src="https://github.com/user-attachments/assets/a5cbfe2c-2c43-4895-9a91-ac2056d763a5" />
 
 A modern, responsive web application for tracking personal finances, built with React.
 
