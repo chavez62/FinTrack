@@ -1,7 +1,5 @@
 # FinTrack - Personal Budget Tracker
 
-![FinTrack Logo](public/logo192.png)
-
 A modern, responsive web application for tracking personal finances, built with React.
 
 ## 📋 Overview
@@ -20,8 +18,7 @@ FinTrack helps you take control of your finances by tracking income, expenses, a
 
 ## 🖥️ Screenshots
 
-![Dashboard](https://via.placeholder.com/800x450.png?text=FinTrack+Dashboard)
-![Transactions](https://via.placeholder.com/800x450.png?text=FinTrack+Transactions)
+<img width="1393" height="894" alt="image" src="https://github.com/user-attachments/assets/a5cbfe2c-2c43-4895-9a91-ac2056d763a5" />
 
 ## 🚀 Quick Start
 

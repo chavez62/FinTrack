@@ -69,7 +69,11 @@ const TransactionForm = () => {
     <motion.div
       className="p-4 bg-white shadow card"
       style={{
-        borderTop: `4px solid ${formData.type === "income" ? "var(--color-success)" : "var(--color-primary)"}`,
+        borderTop: `4px solid ${
+          formData.type === "income"
+            ? "var(--color-success)"
+            : "var(--color-primary)"
+        }`,
       }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -77,7 +81,9 @@ const TransactionForm = () => {
     >
       <h5 className="mb-4 d-flex align-items-center">
         <span
-          className={`rounded-circle me-2 p-2 ${formData.type === "income" ? "bg-success" : "bg-primary"} bg-opacity-10`}
+          className={`rounded-circle me-2 p-2 ${
+            formData.type === "income" ? "bg-success" : "bg-primary"
+          } bg-opacity-10`}
         >
           <FaWallet
             size={16}
@@ -187,4 +193,3 @@ const TransactionForm = () => {
 };
 
 export default TransactionForm;
-
