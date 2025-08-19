@@ -6,9 +6,7 @@ import {
   Card,
   Button,
   ButtonGroup,
-  Alert,
   ListGroup,
-  Badge,
   ProgressBar,
 } from "react-bootstrap";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -108,13 +106,7 @@ const BudgetSummary = () => {
     },
   };
 
-  // Calculate balance status class
-  const getBalanceStatusClass = () => {
-    const balanceNum = parseFloat(balance);
-    if (balanceNum > 0) return "success";
-    if (balanceNum < 0) return "danger";
-    return "warning";
-  };
+
 
   // Function to export as PDF
   const exportAsPDF = () => {

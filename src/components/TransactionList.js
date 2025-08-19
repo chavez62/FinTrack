@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { useBudgetContext } from "../hooks/useBudgetContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaEdit, FaTrash, FaSearch, FaArrowUp, FaArrowDown } from "react-icons/fa";
-import TransactionEditModal from "./TransactionEditModal";
 import {
-  Table,
-  Form,
-  InputGroup,
-  Button,
-  Badge,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+  FaEdit,
+  FaTrash,
+  FaSearch,
+  FaArrowUp,
+  FaArrowDown,
+} from "react-icons/fa";
+import TransactionEditModal from "./TransactionEditModal";
+import { Table, Form, InputGroup, Button, Badge } from "react-bootstrap";
 
 const TransactionList = () => {
   const {
@@ -42,7 +39,10 @@ const TransactionList = () => {
   };
 
   return (
-    <div className="bg-white shadow p-4 card" style={{ borderTop: '4px solid var(--color-primary)' }}>
+    <div
+      className="bg-white shadow p-4 card"
+      style={{ borderTop: "4px solid var(--color-primary)" }}
+    >
       <h5 className="mb-4 d-flex align-items-center">
         <span className="rounded-circle me-2 p-2 bg-primary bg-opacity-10">
           <FaArrowDown size={16} className="text-primary" />
@@ -77,7 +77,9 @@ const TransactionList = () => {
           </Button>
 
           {categories.map((category) => {
-            const categoryClass = `badge-${category.toLowerCase().replace(/\s+/g, '-')}`;
+            const categoryClass = `badge-${category
+              .toLowerCase()
+              .replace(/\s+/g, "-")}`;
             return (
               <Button
                 key={category}
@@ -126,8 +128,10 @@ const TransactionList = () => {
                     <td>{formatDate(transaction.date)}</td>
                     <td>{transaction.name}</td>
                     <td>
-                      <Badge 
-                        className={`badge-${transaction.category.toLowerCase().replace(/\s+/g, '-')}`} 
+                      <Badge
+                        className={`badge-${transaction.category
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
                         pill
                       >
                         {transaction.category}
@@ -136,17 +140,23 @@ const TransactionList = () => {
                     <td>
                       {transaction.type === "income" ? (
                         <span className="income-indicator">
-                          <FaArrowUp className="me-1" />Income
+                          <FaArrowUp className="me-1" />
+                          Income
                         </span>
                       ) : (
                         <span className="expense-indicator">
-                          <FaArrowDown className="me-1" />Expense
+                          <FaArrowDown className="me-1" />
+                          Expense
                         </span>
                       )}
                     </td>
                     <td>
-                      <strong 
-                        className={transaction.type === "income" ? "income-indicator" : "expense-indicator"}
+                      <strong
+                        className={
+                          transaction.type === "income"
+                            ? "income-indicator"
+                            : "expense-indicator"
+                        }
                       >
                         ${parseFloat(transaction.amount).toFixed(2)}
                       </strong>
@@ -178,7 +188,10 @@ const TransactionList = () => {
       )}
 
       {editingTransaction && (
-        <TransactionEditModal item={editingTransaction} onClose={handleCloseModal} />
+        <TransactionEditModal
+          item={editingTransaction}
+          onClose={handleCloseModal}
+        />
       )}
     </div>
   );

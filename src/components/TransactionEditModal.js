@@ -1,19 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useBudgetContext } from '../hooks/useBudgetContext';
-import { motion } from 'framer-motion';
-import { FaTimes } from 'react-icons/fa';
-import { Modal, Form, Button, Alert } from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import { useBudgetContext } from "../hooks/useBudgetContext";
+import { Modal, Form, Button, Alert } from "react-bootstrap";
 
 const TransactionEditModal = ({ item, onClose }) => {
   const { editTransaction, categories } = useBudgetContext();
   const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    amount: '',
-    type: 'expense',
-    date: new Date().toISOString().split('T')[0]
+    name: "",
+    category: "",
+    amount: "",
+    type: "expense",
+    date: new Date().toISOString().split("T")[0],
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (item) {
@@ -21,8 +19,10 @@ const TransactionEditModal = ({ item, onClose }) => {
         name: item.name,
         category: item.category,
         amount: item.amount,
-        type: item.type || 'expense',
-        date: item.date ? new Date(item.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
+        type: item.type || "expense",
+        date: item.date
+          ? new Date(item.date).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
       });
     }
   }, [item]);
@@ -34,35 +34,39 @@ const TransactionEditModal = ({ item, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Validate form data
     if (!formData.name.trim()) {
-      setError('Transaction description is required');
+      setError("Transaction description is required");
       return;
     }
-    
-    if (!formData.amount || isNaN(formData.amount) || parseFloat(formData.amount) <= 0) {
-      setError('Please enter a valid amount');
+
+    if (
+      !formData.amount ||
+      isNaN(formData.amount) ||
+      parseFloat(formData.amount) <= 0
+    ) {
+      setError("Please enter a valid amount");
       return;
     }
-    
+
     if (!formData.date) {
-      setError('Please select a date');
+      setError("Please select a date");
       return;
     }
-    
+
     // Clear error if validation passed
-    setError('');
-    
+    setError("");
+
     // Edit the transaction
     editTransaction(item.id, {
       name: formData.name,
       category: formData.category,
       amount: parseFloat(formData.amount),
       type: formData.type,
-      date: formData.date
+      date: formData.date,
     });
-    
+
     // Close the modal
     onClose();
   };
@@ -72,14 +76,10 @@ const TransactionEditModal = ({ item, onClose }) => {
       <Modal.Header closeButton>
         <Modal.Title>Edit Transaction</Modal.Title>
       </Modal.Header>
-      
+
       <Modal.Body>
-        {error && (
-          <Alert variant="danger">
-            {error}
-          </Alert>
-        )}
-        
+        {error && <Alert variant="danger">{error}</Alert>}
+
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label>Description</Form.Label>
@@ -90,7 +90,7 @@ const TransactionEditModal = ({ item, onClose }) => {
               onChange={handleChange}
             />
           </Form.Group>
-          
+
           <Form.Group className="mb-3">
             <Form.Label>Transaction Type</Form.Label>
             <Form.Select
@@ -102,7 +102,7 @@ const TransactionEditModal = ({ item, onClose }) => {
               <option value="income">Income</option>
             </Form.Select>
           </Form.Group>
-          
+
           <Form.Group className="mb-3">
             <Form.Label>Category</Form.Label>
             <Form.Select
@@ -110,14 +110,14 @@ const TransactionEditModal = ({ item, onClose }) => {
               value={formData.category}
               onChange={handleChange}
             >
-              {categories.map(category => (
+              {categories.map((category) => (
                 <option key={category} value={category}>
                   {category}
                 </option>
               ))}
             </Form.Select>
           </Form.Group>
-          
+
           <Form.Group className="mb-3">
             <Form.Label>Amount ($)</Form.Label>
             <Form.Control
@@ -129,7 +129,7 @@ const TransactionEditModal = ({ item, onClose }) => {
               min="0.01"
             />
           </Form.Group>
-          
+
           <Form.Group className="mb-3">
             <Form.Label>Date</Form.Label>
             <Form.Control
@@ -141,13 +141,13 @@ const TransactionEditModal = ({ item, onClose }) => {
           </Form.Group>
         </Form>
       </Modal.Body>
-      
+
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
           Cancel
         </Button>
-        <Button 
-          variant={formData.type === "income" ? "success" : "primary"} 
+        <Button
+          variant={formData.type === "income" ? "success" : "primary"}
           onClick={handleSubmit}
         >
           Save Changes

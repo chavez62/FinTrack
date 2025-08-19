@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useBudgetContext } from "../hooks/useBudgetContext";
 import { motion } from "framer-motion";
 import { FaWallet } from "react-icons/fa";
-import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Row, Col } from "react-bootstrap";
 
 const TransactionForm = () => {
   const { addTransaction, categories } = useBudgetContext();
